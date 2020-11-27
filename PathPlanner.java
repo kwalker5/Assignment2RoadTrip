@@ -121,7 +121,7 @@ public class PathPlanner
 
     public void Dijkstra(int start, ArrayList<Integer> distance, ArrayList<Integer> previous)//function to perform Dijkstra's and find the shortest path
     {
-        boolean isPath = false;//intialize the flag to false
+        
 
         ArrayList<Integer> list = new ArrayList<Integer>();//intiate an ArrayList to store the information
 
