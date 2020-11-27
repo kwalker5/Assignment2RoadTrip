@@ -4,7 +4,7 @@ import java.io.*;
 
 public class TripPlanner
 {
-    public static ArrayList<Integer> dist= new ArrayList();
+    public static ArrayList<Integer> dist= new ArrayList();//arryList of distacnces
     public static List<String> route(String start, String end, List<String> attractions) throws IOException //function to read the files
     {
         PathPlanner planner = new PathPlanner();//make an object of the pathPlanner class
@@ -56,7 +56,7 @@ public class TripPlanner
         {
             System.out.println("\nPlease enter an attraction name (done to finish): ");//enter the attractions until done
             String attraction = sc.nextLine();
-            if(!attraction.equals("done"))//if user input is not done
+            if(!attraction.equalsIgnoreCase("done"))//if user input is not done
                 attractions.add(attraction);//add the attraction to the list
             else//if equals done
                 break;//break
@@ -64,12 +64,16 @@ public class TripPlanner
 
 
         List<String> route = route(start,end,attractions);//find the route
-        int finaldist = 0;
-        for(int i=0; i<route.size(); i++){
-            int d= dist.get(i);
-            finaldist += d;
+        int finaldist = 0;//intialize final distance
+        for(int i=0; i<route.size(); i++){//loop through the route
+            int d= dist.get(i);//get the distance
+            finaldist += d;//add to the final distance
         }
         System.out.println("Final Route: " + route);//print the route
         System.out.println("Final Distance: " + finaldist);//print the final distance
+        System.out.println("You visited these attractions:");//print the attractions visited
+        for(int j=0; j<attractions.size(); j++){//loop to print attractions
+            System.out.println(attractions.get(j));
+        }
     }
 }
